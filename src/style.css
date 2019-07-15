@@ -1,0 +1,31 @@
+
+
+/*Stepper*/
+.circle {
+    width: 24px;
+}
+
+.circle > span {
+    padding: 0;
+}
+
+.label {
+    position: absolute;
+    top: 0;
+    left: 24px;
+    line-height: 24px;
+    padding-left: 8px;
+}
+
+.stepContent {
+    height: 0;
+    overflow: hidden;
+}
+
+.open {
+    height: 100%;
+    overflow: unset;
+}
+
+/*Tooltips*/
+
