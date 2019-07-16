@@ -14,7 +14,8 @@ import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
 
-import DatePicker from './DatePicker';
+// import DayPicker from './DayPicker';
+import DayPicker from './DayPicker';
 
 
 const useStyles = makeStyles(theme => ({
@@ -172,7 +173,7 @@ export default function VerticalLinearStepper() {
                                     onChange={onChangeEdit}
                                     placeholder={step.title}
                                 />
-                                <DatePicker dueDate={editDate}/>
+                                <DayPicker dueDate={editDate}/>
                                 <Button onClick={() => onClickEdit(index)}>Done</Button>
                             </FormControl>
                         </StepContent>
@@ -192,7 +193,7 @@ export default function VerticalLinearStepper() {
                     name="title"
                     onChange={onChange}
                 />
-                <DatePicker dueDate={selectDate}/>
+                <DayPicker dueDate={selectDate}/>
             </FormControl>
 
             {activeStep === steps.length && (
