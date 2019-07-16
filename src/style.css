@@ -152,12 +152,12 @@
 /* Default modifiers */
 
 .DayPicker-Day--today {
-    color: lightseagreen;
+    color: black;
     font-weight: 700;
 }
 
 .DayPicker-Day--selected {
-    background: #62ff7b;
+    background: #14A584;
     color: white;
 }
 
@@ -179,7 +179,7 @@
 }
 
 .DayPickerInput-OverlayWrapper {
-    position: relative;
+    position: absolute;
 }
 
 .DayPickerInput-Overlay {
@@ -212,6 +212,10 @@
 
 .circle > span {
     padding: 0;
+}
+
+.circle > span > svg .MuiStepIcon-root.MuiStepIcon-active {
+    color: yellow;
 }
 
 .label {

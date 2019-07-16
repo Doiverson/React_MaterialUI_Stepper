@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import {Paper} from "@material-ui/core";
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -13,25 +13,42 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
-
 // import DayPicker from './DayPicker';
 import DayPicker from './DayPicker';
 
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        width: '90%',
-    },
-    button: {
-        fontSize: 10
-    },
-    actionsContainer: {
-        // marginBottom: theme.spacing(2),
-    },
-    resetContainer: {
-        padding: theme.spacing(3),
-    },
-}));
+const useStyles = makeStyles(theme => {
+    return ({
+        root: {
+            width: '90%',
+        },
+        button: {
+            fontSize: 10
+        },
+        actionsContainer: {
+            // marginBottom: theme.spacing(2),
+        },
+        resetContainer: {
+            padding: theme.spacing(3),
+        },
+    })
+});
+
+const muiTheme = createMuiTheme({
+    overrides: {
+        MuiStepIcon: {
+            root: {
+                color: 'rgba(0, 0, 0, 0.42)',
+                '&$active': {
+                    color: '#14A584',
+                },
+                '&$completed': {
+                    color: 'red',
+                },
+            },
+        },
+    }
+})
 
 const LightTooltip = withStyles(theme => ({
     tooltip: {
@@ -151,6 +168,7 @@ export default function VerticalLinearStepper() {
         </div>;
 
     return (
+        <MuiThemeProvider theme={muiTheme}>
         <div className={classes.root}>
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (
@@ -160,7 +178,10 @@ export default function VerticalLinearStepper() {
                                 title={actionContainer}
                                 interactive
                             >
-                                <StepLabel classes={{root: 'circle'}}/>
+                                <StepLabel
+                                    classes={{root: 'circle'}}
+                                    StepIconProps={{ classes: { root: classes.icon } }}
+                                />
                             </LightTooltip> : <StepLabel classes={{root: 'circle'}}/>
                         }
                         <div className="label">{`${step.title} Due Date: ${step.dueDate}`}</div>
@@ -182,7 +203,7 @@ export default function VerticalLinearStepper() {
             </Stepper>
 
             <IconButton onClick={addStep}>
-                <Icon color="primary">
+                <Icon style={{color: `#14A584`}}>
                     add_circle
                 </Icon>
             </IconButton>
@@ -211,5 +232,6 @@ export default function VerticalLinearStepper() {
                 </Paper>
             )}
         </div>
+        </MuiThemeProvider>
     );
 }
