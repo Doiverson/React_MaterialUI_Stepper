@@ -1,6 +1,20 @@
 /*Day Picker*/
 /* DayPicker styles */
 
+.DayPicker-content {
+    display: none;
+    position: absolute;
+    bottom: -280px;
+    left: 5px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+}
+
+.DayPicker-content.open {
+    display: block;
+}
+
 .DayPicker {
     display: inline-block;
     font-size: 1rem;
@@ -13,6 +27,10 @@
     padding-bottom: 1em;
 
     user-select: none;
+}
+
+.DayPicker-wrapper:focus {
+    outline: none;
 }
 
 .DayPicker-Months {
@@ -49,6 +67,10 @@
     background-repeat: no-repeat;
     color: #8B9898;
     cursor: pointer;
+}
+
+.DayPicker-NavButton:focus {
+    outline: none;
 }
 
 .DayPicker-NavButton:hover {
@@ -117,6 +139,10 @@
     vertical-align: middle;
     text-align: center;
     cursor: pointer;
+}
+
+.DayPicker-Day:focus {
+    outline: none;
 }
 
 .DayPicker-WeekNumber {
@@ -218,7 +244,7 @@
     color: yellow;
 }
 
-.label {
+.step-label {
     position: absolute;
     top: 0;
     left: 24px;
@@ -231,12 +257,11 @@
     overflow: hidden;
 }
 
-.open {
+.step-active {
     height: 100%;
     overflow: unset;
 }
 
-/*DayPicker*/
 
 
 

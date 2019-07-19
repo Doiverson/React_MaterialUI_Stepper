@@ -184,8 +184,8 @@ export default function VerticalLinearStepper() {
                                 />
                             </LightTooltip> : <StepLabel classes={{root: 'circle'}}/>
                         }
-                        <div className="label">{`${step.title} Due Date: ${step.dueDate}`}</div>
-                        <StepContent classes={{root: `stepContent ${editStatus ? "open" : ""}`}}>
+                        <div className="step-label">{`${step.title} Due Date: ${step.dueDate}`}</div>
+                        <StepContent classes={{root: `stepContent ${editStatus ? "step-active" : ""}`}}>
                             <FormControl>
                                 <InputLabel>Title</InputLabel>
                                 <Input
